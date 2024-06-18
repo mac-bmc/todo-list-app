@@ -76,11 +76,12 @@ const App: React.FC = () => {
       borderColor: colors['white'],
       backgroundColor: colors['btnBackground'],
       padding:15,
-    }
+    },
+    TitleTextLayout:{alignSelf:'center',fontSize:22}
   })
   return (
     <SafeAreaView style={styles.MainLayoutContainer}>
-      <Text style={{alignSelf:'center',fontSize:22}}>{strings['homeTitle']}</Text>
+      <Text style={styles.TitleTextLayout}>{strings['homeTitle']}</Text>
       <TodoInput addTodo={addTodo} setModal={setModal} isModalVisible={modalVisible}/>
       {todo.length ? <TodoList todo={todo} updateTodo={updateTodo} deleteTodo={deleteTodo} /> :<Text style={{flex:1,alignSelf:'center',margin:20}}>{strings['taskEmpty']}</Text>}
       <Pressable onPress={()=>setModal(true)}>

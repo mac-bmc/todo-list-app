@@ -41,7 +41,9 @@ export const TodoInput: React.FC<TodoInputProps> = ({ addTodo, isModalVisible, s
             backgroundColor: colors['btnBackground'],
             borderRadius: 50,
             padding: 10
-        }
+        },
+        TitleTextLayout:{marginHorizontal:20,fontSize:20},
+        HeaderRowLayout:{flexDirection:'row',justifyContent:'flex-start'}
     })
 
     const [title, setTitle] = useState<String>("")
@@ -59,9 +61,9 @@ export const TodoInput: React.FC<TodoInputProps> = ({ addTodo, isModalVisible, s
         {
             <Modal visible={isModalVisible}  >
                     <View style={styles.MainViewContainer}>
-                        <View style={{flexDirection:'row',justifyContent:'flex-start'}}>
+                        <View style={styles.HeaderRowLayout}>
                         <AntDesign name="back" size={24} color="black" onPress={()=>setModal(false)}/>
-                        <Text style={{marginHorizontal:20,fontSize:20}}>{strings['addTask']}</Text>
+                        <Text style={styles.TitleTextLayout}>{strings['addTask']}</Text>
                         </View>
                         <CustomInputField text={title} placeholder={strings['titlePlaceholder']} setText={setTitle} />
                         <CustomInputField text={desciption} placeholder={strings['descriptionPlaceholder']} setText={setDesc} />
